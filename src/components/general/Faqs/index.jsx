@@ -1,8 +1,11 @@
 "use client";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import SectionWrapper from "../SectionWrapper";
+import Title from "../Title";
+import { Highlighter } from "@/components/ui/highlighter";
 import { FAQS } from "./helper/constants";
 import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Faqs() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -12,11 +15,28 @@ export default function Faqs() {
   };
 
   return (
-    <section className="py-4 mt-12 px-4 sm:px-8 w-full mx-auto text-neutral-900 dark:text-white">
-      <h2 className="text-4xl font-bold text-center mb-12">
-        📸 Frequently Asked Questions
-      </h2>
-
+    <SectionWrapper
+      title={
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-12 max-w-3xl text-center"
+        >
+          <Title
+            title={
+              <span className="text-3xl md:text-6xl">
+                Frequently Asked <br />
+                <Highlighter action="highlight" color="#22c55e">
+                  <span className="text-white relative z-10 px-2 py-1">Questions</span>
+                </Highlighter>
+              </span>
+            }
+            description=""
+          />
+        </motion.div>
+      }
+    >
       <div className="space-y-4">
         {FAQS.map((faq, i) => {
           const Icon = faq.icon;
@@ -67,6 +87,6 @@ export default function Faqs() {
           );
         })}
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

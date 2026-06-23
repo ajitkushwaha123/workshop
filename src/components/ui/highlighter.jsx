@@ -1,5 +1,5 @@
 "use client";
-import { useLayoutEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useInView } from "motion/react"
 import { annotate } from "rough-notation"
 
@@ -11,7 +11,7 @@ export function Highlighter({
   animationDuration = 600,
   iterations = 2,
   padding = 2,
-  multiline = true,
+  multiline = false,
   isView = false
 }) {
   const elementRef = useRef(null)
@@ -24,39 +24,55 @@ export function Highlighter({
   // If isView is false, always show. If isView is true, wait for inView
   const shouldShow = !isView || isInView
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const element = elementRef.current
     let annotation = null
     let resizeObserver = null
+    let isMounted = true
 
     if (shouldShow && element) {
-      const annotationConfig = {
-        type: action,
-        color,
-        strokeWidth,
-        animationDuration,
-        iterations,
-        padding,
-        multiline,
-      }
+      const draw = (animate = true) => {
+        if (!isMounted) return;
+        if (annotation) {
+          annotation.remove();
+        }
+        
+        annotation = annotate(element, {
+          type: action,
+          color,
+          strokeWidth,
+          animationDuration: animate ? animationDuration : 0,
+          iterations,
+          padding,
+          multiline,
+        });
+        
+        annotation.show();
+      };
 
-      const currentAnnotation = annotate(element, annotationConfig)
-      annotation = currentAnnotation
-      currentAnnotation.show()
+      // Wait for fonts to fully load to prevent the left-shift offset bug
+      document.fonts.ready.then(() => {
+        // Small delay to let framer-motion layouts settle
+        setTimeout(() => {
+          if (!isMounted) return;
+          draw(true);
 
-      resizeObserver = new ResizeObserver(() => {
-        currentAnnotation.hide()
-        currentAnnotation.show()
-      })
-
-      resizeObserver.observe(element)
-      resizeObserver.observe(document.body)
+          // Re-calculate bounding boxes silently on window resize or reflow
+          resizeObserver = new ResizeObserver(() => {
+             draw(false);
+          });
+          resizeObserver.observe(element);
+        }, 150);
+      });
     }
 
     return () => {
-      annotation?.remove()
+      isMounted = false;
+      if (annotation) {
+        annotation.remove();
+      }
       if (resizeObserver) {
-        resizeObserver.disconnect()
+        resizeObserver.disconnect();
       }
     };
   }, [
@@ -71,8 +87,10 @@ export function Highlighter({
   ])
 
   return (
-    <span ref={elementRef} className="relative inline-block bg-transparent">
-      {children}
+    <span className="relative inline-block whitespace-nowrap">
+      <span ref={elementRef} className="inline-block">
+        {children}
+      </span>
     </span>
   );
 }

@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <PainSection />
       <MasonryGallery />
-      <TransformationSection />
+      {/* <TransformationSection /> */}
       <Testimonials />
       <Banner />
       <Faqs />
