@@ -7,7 +7,7 @@ import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
 export const Hero = () => {
     return (
-        <div className="relative w-full px-4 sm:px-6 lg:px-8 text-center pt-20 md:pt-32 pb-16 md:pb-24 overflow-hidden flex flex-col items-center">
+        <div className="relative w-full px-4 sm:px-6 lg:px-8 text-center pt-20 md:pt-32 pb-8 md:pb-12 overflow-hidden flex flex-col items-center">
             <GridPattern
                 width={40}
                 height={40}

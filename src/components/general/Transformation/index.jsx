@@ -209,28 +209,6 @@ export default function TransformationSection() {
                         </div>
                     ))}
                 </div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-24"
-                >
-                    <div className="rounded-[32px] border border-green-500/20 bg-gradient-to-r from-green-500/10 via-emerald-500/10 to-green-500/10 p-10 md:p-16 text-center backdrop-blur-xl">
-                        <h3 className="text-3xl font-bold md:text-5xl text-zinc-900 dark:text-white">
-                            Your Transformation Starts With One Decision
-                        </h3>
-
-                        <p className="mx-auto mt-4 max-w-2xl text-zinc-500 dark:text-zinc-400">
-                            Stop guessing. Learn the exact roadmap to launch and grow a
-                            profitable food business with confidence.
-                        </p>
-
-                        <a href="#pricing" className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:shadow-green-500/30 transition-all hover:scale-105 active:scale-95">
-                            Book Your Seat For ₹9 <ArrowRight className="w-5 h-5" />
-                        </a>
-                    </div>
-                </motion.div>
             </div>
         </section>
     );

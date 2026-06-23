@@ -19,22 +19,22 @@ const IMAGES = [
   {
     id: 1,
     src: "/assets/gallery/team1.png",
-    alt: "Chocolate Praline Cake",
+    alt: "Customer Support Team",
   },
   {
     id: 5,
     src: "/assets/gallery/team5.png",
-    alt: "Mango Shake",
+    alt: "Account Handling Team",
   },
   {
     id: 6,
     src: "/assets/gallery/team6.png",
-    alt: "Classic Shroom Burger",
+    alt: "Marketing Team",
   },
   {
     id: 7,
     src: "/assets/gallery/team7.png",
-    alt: "Paneer Tikka Roll",
+    alt: "Client Meeting",
   },
   {
     id: 8,
