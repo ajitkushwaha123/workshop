@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://foodsnap.in
+
+# Sitemaps
+Sitemap: https://foodsnap.in/sitemap.xml
