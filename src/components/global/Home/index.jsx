@@ -1,6 +1,6 @@
 "use client";
+import React from "react";
 import Faqs from "../../general/Faqs";
-import React, { useState } from "react";
 import { Hero } from "@/components/general/Hero";
 import Testimonials from "../../general/Reviews";
 import MasonryGallery from "../../general/galllery";
