@@ -1,33 +1,24 @@
-import React from "react";
-import { Bug, Mail, MapPin, Headset } from "lucide-react";
 import Template from "@/components/global/template";
+import { Bug, Headset, Mail, MapPin } from "lucide-react";
 
 export const metadata = {
-  title: "Report an Issue - FoodSnap",
+  title: "Support & Issue Reporting | MagicScale Pathshala",
   description:
-    "Found an issue in a food image or can't access your downloads? Contact FoodSnap support for fast help and reporting image problems.",
+    "Need help with webinar access, mentorship programs, payments, or training resources? Contact the MagicScale Pathshala support team.",
   keywords: [
-    "FoodSnap support",
-    "report food image",
-    "food image issues",
-    "image problem",
-    "food library support",
-    "download issue",
+    "MagicScale Support",
+    "Webinar Support",
+    "Restaurant Training Support",
+    "Mentorship Support",
+    "Payment Issue",
+    "Course Access Help",
   ],
   openGraph: {
-    title: "Report an Issue - FoodSnap",
+    title: "Support & Issue Reporting | MagicScale Pathshala",
     description:
-      "Found an issue in a food image or can't access your downloads? Contact FoodSnap support for fast help and reporting image problems.",
-    url: "https://foodsnap.in/report-issue",
-    siteName: "FoodSnap",
-    images: [
-      {
-        url: "https://foodsnap.in/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Report an Issue at FoodSnap",
-      },
-    ],
+      "Need help with webinar access, mentorship programs, payments, or training resources? Contact our support team.",
+    url: "https://magicscale.in/report-issue",
+    siteName: "MagicScale Pathshala",
     locale: "en_IN",
     type: "website",
   },
@@ -35,101 +26,79 @@ export const metadata = {
 
 const cardData = [
   {
-    title: "Report an Image Issue",
-    description: "Wrong tag, missing item, or need image update?",
+    title: "Webinar Access Issues",
+    description: "Unable to join a webinar or access purchased training?",
     icon: <Bug className="w-6 h-6 text-red-500" />,
     content: (
       <>
-        If you've found an image that doesn't match the food item, has quality
-        issues, or you'd like us to add a missing dish, please reach out.
-        <br />
-        <br />
-        You can email a screenshot, dish name, or collection reference to{" "}
+        If you're unable to access a webinar, receive joining details, view
+        course materials, or access any purchased program, our team is ready to
+        help. <br /> <br />
+        Please email your registered email address and purchase details to{" "}
         <a
-          href="mailto:report@foodsnap.in"
+          href="mailto:support@magicscale.in"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          report@foodsnap.in
-        </a>{" "}
-        and we’ll take care of it.
-        <br />
-        <br />
-        Most reports are resolved within 24 hours.
+          [support@magicscale.in](mailto:support@magicscale.in){" "}
+        </a>
+        .
       </>
     ),
   },
   {
-    title: "General Support",
-    description: "Need help accessing images or managing your plan?",
+    title: "Payment & Billing Support",
+    description: "Facing payment confirmation or billing-related issues?",
     icon: <Mail className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        For help with billing, download access, or subscription concerns, feel
-        free to contact our support team.
-        <br />
-        <br />
-        Drop an email to{" "}
-        <a
-          href="mailto:support@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          support@foodsnap.in
-        </a>{" "}
-        — we're happy to assist.
+        If your payment was successful but access was not granted, or if you
+        believe a billing error occurred, please contact our support team with
+        your transaction details. <br /> <br />
+        We will investigate and resolve legitimate billing issues as quickly as
+        possible.
       </>
     ),
   },
   {
-    title: "Business or Media Contact",
-    description: "Want to collaborate, license, or partner with us?",
+    title: "Mentorship & Program Support",
+    description: "Need assistance regarding mentorship or training programs?",
     icon: <MapPin className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        For media, business inquiries, or bulk licensing of our food imagery,
-        contact us at{" "}
-        <a
-          href="mailto:contact@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          contact@foodsnap.in
-        </a>
-        .
-        <br />
-        <br />
-        Location: New Delhi, India.
+        For questions regarding mentorship calls, program schedules,
+        assignments, implementation guidance, or workshop resources, contact our
+        team. <br /> <br />
+        MagicScale Pathshala operates online and serves restaurant entrepreneurs
+        across India.
       </>
     ),
   },
 ];
 
 const contactData = {
-  title: "Facing an Issue with FoodSnap?",
+  title: "Need Help? We're Here For You",
   description:
-    "We’re here to help with image problems, download errors, or content requests. Let us know what went wrong and we’ll fix it fast.",
+    "Whether it's webinar access, payment concerns, or program-related questions, our team is ready to assist.",
   content: (
     <div>
+      {" "}
       <p className="mb-4">
-        Whether it’s a mislabelled food image, Swiggy/Zomato upload issue, or
-        something missing from your collection — we’re just an email away.
+        If you're facing any issue related to our webinars, workshops,
+        mentorship programs, training resources, or payments, please reach out
+        with complete details so we can assist you efficiently.{" "}
       </p>
       <p>
-        📧 Report an image:{" "}
+        📧 Support Email:{" "}
         <a
-          href="mailto:report@foodsnap.in"
+          href="mailto:support@magicscale.in"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          report@foodsnap.in
-        </a>
-        <br />
-        📧 General Support:{" "}
-        <a
-          href="mailto:support@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          support@foodsnap.in
+          support@magicscale.in
         </a>
         <br />
         📍 Location: New Delhi, India
+        <br />
+        🎓 MagicScale Pathshala – Restaurant Growth Training & Mentorship
       </p>
     </div>
   ),
@@ -138,20 +107,21 @@ const contactData = {
 const page = () => {
   return (
     <Template
-      title="Report an Issue"
+      title="Support & Issue Reporting"
       heading={
         <div>
-          Report a Food Image Problem <br className="hidden sm:block" />
-          or Get Help Instantly
+          Need Help? <br className="hidden sm:block" />
+          Contact Our Support Team{" "}
         </div>
       }
-      description="Found an issue in a food image or can't access your downloads? Let us know. We’re here to resolve your concerns quickly."
-      ctaDescription="Our team actively monitors and improves the image library. If something’s wrong, reporting helps us fix it for everyone."
+      description="Facing an issue with webinar access, mentorship programs, payments, or training resources? Let us know and we'll help resolve it."
+      ctaDescription="Our team is committed to providing a smooth learning experience. If you encounter any issues, we're just an email away."
       ctaLink="/contact"
       ctaButton={
         <span className="flex items-center gap-2">
+          {" "}
           <Headset className="w-4 h-4" />
-          Contact Support
+          Contact Support{" "}
         </span>
       }
       infoData={cardData}

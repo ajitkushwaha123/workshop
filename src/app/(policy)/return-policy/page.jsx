@@ -1,140 +1,119 @@
-import React from "react";
-import { Headset, ShieldCheck, Trash2 } from "lucide-react";
 import Template from "@/components/global/template";
+import { Headset, ShieldCheck, Trash2 } from "lucide-react";
 
 export const metadata = {
-  title: "Return & Refund Policy | FoodSnap.in",
+  title: "Delivery, Cancellation & Refund Policy | MagicScale Pathshala",
   description:
-    "Understand our refund and cancellation policy for FoodSnap — your digital food image library subscription.",
+    "Learn about webinar access, program delivery, cancellations, and refund policies for MagicScale Pathshala training programs and mentorship services.",
   keywords: [
-    "FoodSnap",
-    "refund policy",
-    "cancellation policy",
-    "digital food images",
-    "subscription",
-    "no refund",
-    "digital delivery",
+    "MagicScale Pathshala",
+    "Refund Policy",
+    "Cancellation Policy",
+    "Webinar Access",
+    "Mentorship Program",
+    "Restaurant Training",
+    "No Refund Policy",
   ],
   robots: "index, follow",
 };
 
 const cardData = [
   {
-    title: "Shipping & Digital Delivery Policy",
-    description:
-      "Access to our food image library is provided digitally within 24 hours of subscription.",
+    title: "Digital Delivery of Programs",
+    description: "All products and services are delivered digitally.",
     icon: <ShieldCheck className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        At <strong>FoodSnap.in</strong>, all of our offerings are 100% digital.
-        We do not ship or deliver any physical products.
-        <br />
-        <br />
-        <strong>Instant Digital Delivery:</strong> Upon successful subscription
-        and payment, you’ll receive access to our premium food image library
-        within <strong>24 hours</strong> — usually much sooner.
-        <br />
-        <br />
-        This includes:
-        <ul className="list-disc pl-5 mt-2">
-          <li>Full access to our curated, platform-ready food image library</li>
-          <li>Unlimited downloads during your active subscription period</li>
-          <li>
-            Content optimized for platforms like <strong>Zomato</strong> and{" "}
-            <strong>Swiggy</strong>
-          </li>
-        </ul>
-        <br />
-        <strong>Delivery Confirmation:</strong> You will receive an email
-        confirming your subscription, followed by activation details. If you
-        don’t receive this within 24 hours, please check your spam folder or
-        contact us at{" "}
-        <a
-          href="mailto:support@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          support@foodsnap.in
-        </a>
-        .
-        <br />
-        <br />
-        <strong>No Physical Shipping:</strong> As a digital-only service, there
-        are no shipping charges, logistics, or physical goods involved.
+        MagicScale Pathshala provides educational services including webinars,
+        workshops, mentorship programs, training sessions, templates,
+        recordings, and digital learning resources. <br /> <br />
+        All products are delivered electronically through email, online
+        platforms, webinar software, or member portals. <br /> <br />
+        After successful payment, participants will receive access details,
+        joining instructions, or program onboarding information using the email
+        address provided during registration. <br /> <br />
+        We do not ship any physical products.
       </>
     ),
   },
   {
-    title: "Strict No Refund Policy on Subscriptions",
-    description:
-      "All purchases are final. We do not offer returns, refunds, or exchanges.",
+    title: "Cancellation & Attendance Policy",
+    description: "Please ensure you can attend before purchasing.",
     icon: <Trash2 className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        Due to the digital nature of our service, FoodSnap.in strictly does not
-        provide refunds once a subscription is activated. Subscribers gain
-        instant access to our full image collection — making refunds impractical
-        and inapplicable.
-        <br />
-        <br />
-        We encourage users to review available sample images and service
-        information before subscribing. All purchases are final and
-        non-refundable.
+        Participants are responsible for attending live sessions using the
+        access details provided. <br /> <br />
+        Failure to attend a webinar, workshop, coaching call, or mentorship
+        session does not qualify for cancellation, refund, credit, or transfer.{" "}
+        <br /> <br />
+        We strongly encourage participants to review event schedules before
+        completing a purchase.
       </>
     ),
   },
   {
-    title: "Subscription Cancellation & Access Expiry",
-    description:
-      "Cancel anytime. Access ends automatically when your subscription ends.",
+    title: "Strict No Refund Policy",
+    description: "Refunds are only considered when the mistake is on our side.",
     icon: <ShieldCheck className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        You can cancel your FoodSnap.in subscription at any time from your
-        dashboard. Your access to the food image library will remain active
-        until the end of your billing cycle.
+        All purchases made through MagicScale Pathshala are final and
+        non-refundable. <br /> <br />
+        Refunds will not be provided because:{" "}
+        <ul className="list-disc pl-5 mt-2">
+          {" "}
+          <li>You changed your mind after purchase.</li>{" "}
+          <li>You could not attend a live webinar or session.</li>{" "}
+          <li>You did not achieve expected business results.</li>{" "}
+          <li>You chose not to continue implementing the training.</li>{" "}
+          <li>You misunderstood the program content before purchasing.</li>{" "}
+        </ul>{" "}
         <br />
+        Refunds may only be considered in exceptional situations where:{" "}
+        <ul className="list-disc pl-5 mt-2">
+          {" "}
+          <li>A duplicate payment was processed.</li>{" "}
+          <li>A verified billing error occurred.</li>{" "}
+          <li>
+            We failed to deliver the purchased service due to our error.
+          </li>{" "}
+        </ul>{" "}
         <br />
-        After cancellation or expiry, you will no longer have access to
-        downloads, but you are free to use images already downloaded during your
-        subscription period. You can re-subscribe at any time to regain access.
+        Any approved refund remains solely at the discretion of MagicScale
+        Pathshala after reviewing the circumstances.
       </>
     ),
   },
 ];
 
 const contactData = {
-  title: "Need Help Understanding Our Policy?",
+  title: "Questions About Payments or Access?",
   description:
-    "Have questions about refunds, subscriptions, or content access?",
+    "Contact our team if you experience a billing issue or access problem.",
   content: (
     <div>
+      {" "}
       <p className="mb-4">
-        For any questions or clarifications regarding our refund and
-        cancellation policies, you can reach out to us at{" "}
-        <a
-          href="mailto:support@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          support@foodsnap.in
-        </a>{" "}
-        or{" "}
-        <a
-          href="mailto:contact@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          contact@foodsnap.in
-        </a>
-        .
+        If you believe a payment issue occurred, did not receive your access
+        details, or experienced a service delivery problem caused by us, please
+        contact our support team with your transaction information.{" "}
       </p>
       <p>
-        You can also report image-related issues or removal requests at{" "}
+        Support Email:{" "}
         <a
-          href="mailto:report@foodsnap.in"
+          href="mailto:support@magicscale.in"
           className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
         >
-          report@foodsnap.in
+          support@magicscale.in
         </a>
-        . We're based in New Delhi, India and ready to help!
+      </p>
+      <p className="mt-3">
+        MagicScale Pathshala
+        <br />
+        New Delhi, India
+        <br />
+        Restaurant Growth Training, Webinars & Mentorship Programs
       </p>
     </div>
   ),
@@ -143,20 +122,21 @@ const contactData = {
 const page = () => {
   return (
     <Template
-      title="Return & Refund Policy"
+      title="Delivery, Cancellation & Refund Policy"
       heading={
         <div>
-          Refund & Cancellation <br className="hidden sm:block" />
-          Policy for FoodSnap Subscriptions
+          Delivery, Cancellation <br className="hidden sm:block" />& Refund
+          Policy{" "}
         </div>
       }
-      description="Understand our refund and cancellation policy for FoodSnap — your digital food image library subscription."
-      ctaDescription="FoodSnap is a digital-only platform. Once subscribed, you get full access to our pre-approved image collection. No refunds or returns are permitted after subscription."
-      ctaLink="/report-issue"
+      description="Please review our policies regarding webinar access, digital delivery, cancellations, and refunds before making a purchase."
+      ctaDescription="All MagicScale Pathshala programs are delivered digitally. Purchases are final and refunds are only considered in rare situations where the issue is caused by our systems or service delivery."
+      ctaLink="mailto:support@magicscale.in"
       ctaButton={
         <span className="flex items-center gap-2">
+          {" "}
           <Headset className="w-4 h-4" />
-          Report an Issue
+          Contact Support{" "}
         </span>
       }
       infoData={cardData}

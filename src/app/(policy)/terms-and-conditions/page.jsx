@@ -1,146 +1,128 @@
-import React from "react";
-import { Headset, Rows, Zap, ShieldCheck, Trash2 } from "lucide-react";
 import Template from "@/components/global/template";
+import { Headset, Rows, ShieldCheck, Trash2, Zap } from "lucide-react";
 
 export const metadata = {
-  title: "Terms & Conditions | FoodSnap.in",
+  title: "Terms & Conditions | MagicScale Pathshala",
   description:
-    "Understand the rules that govern your use of FoodSnap.in — a food image library built for food creators, marketers, and restaurants.",
+    "Review the Terms & Conditions governing your use of MagicScale Pathshala's webinars, mentorship programs, training resources, and educational services.",
   keywords: [
-    "FoodSnap.in",
+    "MagicScale Pathshala",
     "Terms and Conditions",
-    "Food Images",
-    "Food Library",
-    "Image Licensing",
-    "Swiggy",
-    "Zomato",
+    "Restaurant Business Training",
+    "Webinar Terms",
+    "Mentorship Program",
+    "Food Business Education",
   ],
-  authors: [{ name: "FoodSnap", url: "https://foodsnap.in" }],
+  authors: [
+    { name: "MagicScale Pathshala", url: "https://pathshala.magicscale.in" },
+  ],
   openGraph: {
-    title: "Terms & Conditions | FoodSnap.in",
+    title: "Terms & Conditions | MagicScale Pathshala",
     description:
-      "Understand the rules that govern your use of FoodSnap.in — a food image library built for food creators, marketers, and restaurants.",
-    url: "https://foodsnap.in/terms-and-conditions",
-    siteName: "FoodSnap.in",
+      "Review the Terms & Conditions governing your use of MagicScale Pathshala's educational programs and services.",
+    url: "https://magicscale.in/terms-and-conditions",
+    siteName: "MagicScale Pathshala",
     type: "website",
   },
 };
 
 const cardData = [
   {
-    title: "User Responsibilities",
-    description:
-      "Users must use FoodSnap.in services ethically and in compliance with all applicable laws.",
+    title: "Participant Responsibilities",
+    description: "Participants must use our programs responsibly and lawfully.",
     icon: <Rows className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        As a FoodSnap.in user, you agree to use the platform responsibly for
-        lawful content usage. All images are pre-approved for use on platforms
-        like Swiggy and Zomato, and must not be misused or resold.
-        <br />
-        <br />
-        You are responsible for maintaining the security of your account and
-        subscription access credentials.
+        By enrolling in any MagicScale Pathshala webinar, workshop, mentorship
+        program, or training course, you agree to use our services only for
+        lawful purposes. <br /> <br />
+        You are responsible for providing accurate information during
+        registration and maintaining the confidentiality of any account or
+        access credentials provided to you.
       </>
     ),
   },
   {
-    title: "Platform Usage & Limitations",
+    title: "Educational Content & Intellectual Property",
     description:
-      "FoodSnap.in offers access to licensed food imagery — not ownership or resale rights.",
+      "Program materials are licensed for personal learning use only.",
     icon: <Zap className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        FoodSnap.in provides a growing collection of high-quality food images
-        verified for use on food delivery platforms. While you have unlimited
-        downloads under your subscription, redistribution or use outside
-        approved platforms may violate terms.
-        <br />
-        <br />
-        Abuse, automated scraping, or unauthorized use of content may lead to
-        account suspension or legal action.
+        All training materials, presentations, recordings, frameworks,
+        templates, worksheets, videos, strategies, and educational resources
+        provided by MagicScale Pathshala remain our intellectual property.{" "}
+        <br /> <br />
+        Participants may use these materials for their own business learning and
+        implementation but may not reproduce, resell, redistribute, publish, or
+        share them without written permission.
       </>
     ),
   },
   {
-    title: "Security & Data Integrity",
-    description:
-      "We take security seriously, but you must also protect your credentials.",
+    title: "No Guarantee of Business Results",
+    description: "Success depends on implementation and many external factors.",
     icon: <ShieldCheck className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        We secure your access using encryption and role-based permissions. We do
-        not store payment information directly.
-        <br />
-        <br />
-        You are advised to avoid sharing your login details and to promptly
-        report any suspicious activity to our support team.
+        MagicScale Pathshala provides educational guidance, mentorship, and
+        business training only. <br /> <br />
+        We do not guarantee any specific revenue, profit, sales volume,
+        restaurant ranking, customer growth, or business outcome. <br /> <br />
+        Results shared in testimonials, case studies, or examples are not
+        promises of future performance and should not be interpreted as
+        guarantees.
       </>
     ),
   },
   {
-    title: "Termination & Deletion",
-    description:
-      "Cancel anytime — and we may enforce policy violations at our discretion.",
+    title: "Termination & Policy Violations",
+    description: "Access may be revoked for misuse or violations.",
     icon: <Trash2 className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        You can cancel your subscription at any time. Upon termination, your
-        access to downloadable images will end immediately.
+        We reserve the right to suspend or terminate access to our programs,
+        communities, events, resources, or services if a participant:{" "}
+        <ul className="list-disc pl-5 mt-2">
+          {" "}
+          <li>Shares paid content without authorization.</li>{" "}
+          <li>Disrupts sessions or community discussions.</li>{" "}
+          <li>Engages in abusive, fraudulent, or unlawful behavior.</li>{" "}
+          <li>Violates these Terms & Conditions.</li>{" "}
+        </ul>{" "}
         <br />
-        <br />
-        We reserve the right to terminate accounts that misuse the platform,
-        violate our content policy, or engage in fraudulent activity.
+        Access termination does not create eligibility for a refund.
       </>
     ),
   },
 ];
 
 const contactData = {
-  title: "Need Clarification or Have Questions?",
-  description:
-    "We're here to help you understand the terms and make the most of FoodSnap.in.",
+  title: "Questions About These Terms?",
+  description: "We're happy to clarify any aspect of our Terms & Conditions.",
   content: (
     <div>
+      {" "}
       <p className="mb-4">
-        These Terms & Conditions govern your use of FoodSnap.in. By accessing
-        our library (
-        <a
-          href="https://foodsnap.in"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          foodsnap.in
-        </a>
-        ), you agree to abide by them.
+        By accessing or purchasing any MagicScale Pathshala webinar, mentorship,
+        workshop, training program, or educational resource, you agree to these
+        Terms & Conditions.{" "}
       </p>
       <p className="mb-2">
-        General inquiries:{" "}
+        Support & General Inquiries:{" "}
         <a
-          href="mailto:contact@foodsnap.in"
+          href="mailto:support@magicscale.in"
           className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
         >
-          contact@foodsnap.in
-        </a>
-      </p>
-      <p className="mb-2">
-        Support issues:{" "}
-        <a
-          href="mailto:support@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          support@foodsnap.in
+          support@magicscale.in
         </a>
       </p>
       <p>
-        Image removals or copyright reports:{" "}
-        <a
-          href="mailto:report@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          report@foodsnap.in
-        </a>
+        MagicScale Pathshala
+        <br />
+        New Delhi, India
+        <br />
+        Restaurant Growth Training, Webinars & Mentorship Programs
       </p>
     </div>
   ),
@@ -152,17 +134,18 @@ const page = () => {
       title="Terms & Conditions"
       heading={
         <div>
-          Your Access. <br className="hidden sm:block" />
-          Our Terms. Clear & Fair.
+          Terms & Conditions <br className="hidden sm:block" />
+          For Participants{" "}
         </div>
       }
-      description="Understand the rules that govern your use of FoodSnap.in — a food image library built for food creators, marketers, and restaurants."
-      ctaDescription="By using FoodSnap.in, you agree to these Terms & Conditions designed to ensure ethical, secure, and approved use of our image library."
-      ctaLink="/report-issue"
+      description="Please review the terms governing your use of MagicScale Pathshala's webinars, mentorship programs, and educational services."
+      ctaDescription="By accessing our programs and services, you agree to these Terms & Conditions, which help ensure a fair and productive learning environment for all participants."
+      ctaLink="mailto:support@magicscale.in"
       ctaButton={
         <span className="flex items-center gap-2">
+          {" "}
           <Headset className="w-4 h-4" />
-          Report an Issue
+          Contact Support{" "}
         </span>
       }
       infoData={cardData}

@@ -1,106 +1,100 @@
-
 import Template from "@/components/global/template";
-import { Headset } from "lucide-react";
-import React from "react";
-import { Rows, Zap, ShieldCheck, Trash2 } from "lucide-react";
+import { Headset, Rows, ShieldCheck, Trash2, Zap } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy - FoodSnap.in",
+  title: "Privacy Policy | MagicScale Pathshala",
   description:
-    "Learn how FoodSnap.in collects, uses, and safeguards your personal information with full transparency and control.",
+    "Learn how MagicScale Pathshala collects, uses, and protects your personal information when you attend our webinars, training programs, mentorship sessions, and educational services.",
   keywords: [
-    "Privacy Policy",
-    "FoodSnap.in",
+    "MagicScale Pathshala Privacy Policy",
+    "Restaurant Business Training",
     "Data Protection",
     "Personal Information",
-    "User Rights",
+    "Webinar Registration",
+    "Mentorship Program Privacy",
   ],
   openGraph: {
-    title: "Privacy Policy - FoodSnap.in",
+    title: "Privacy Policy | MagicScale Pathshala",
     description:
-      "Learn how FoodSnap.in collects, uses, and safeguards your personal information with full transparency and control.",
-    url: "https://foodsnap.in/privacy-policy",
-    siteName: "FoodSnap.in",
+      "Learn how MagicScale Pathshala collects, uses, and protects your personal information.",
+    url: "https://magicscale.in/privacy-policy",
+    siteName: "MagicScale Pathshala",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy - FoodSnap.in",
+    title: "Privacy Policy | MagicScale Pathshala",
     description:
-      "Learn how FoodSnap.in collects, uses, and safeguards your personal information with full transparency and control.",
+      "Learn how MagicScale Pathshala collects, uses, and protects your personal information.",
   },
 };
 
 const cardData = [
   {
-    title: "Types of Information We Gather",
+    title: "Information We Collect",
     description:
-      "We track essential data to understand how you interact with our platform.",
+      "We collect information required to deliver our training and support services.",
     icon: <Rows className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        We collect basic user information such as your name, email address, and
-        contact preferences when you sign up for FoodSnap.in.
-        <br />
-        <br />
-        We also track how you use our platform — including login activity,
-        download frequency, and interaction patterns — to improve our service
-        and detect misuse.
+        When you register for our webinars, workshops, mentorship programs, or
+        educational services, we may collect your name, email address, phone
+        number, business details, and payment-related information. <br /> <br />
+        We may also collect website analytics, device information, and usage
+        data to improve our learning experience and platform performance.
       </>
     ),
   },
   {
-    title: "Ways We Utilize Your Data",
+    title: "How We Use Your Information",
     description:
-      "Your data helps us personalize your experience and keep the platform secure.",
+      "Your information helps us deliver programs and improve student outcomes.",
     icon: <Zap className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        We use your data to deliver relevant image collections, recommend
-        categories, and improve download performance.
-        <br />
-        <br />
-        It also helps us provide technical support, issue invoices, track
-        abusive usage patterns, and notify you about platform changes or
-        features.
+        We use your information to manage webinar registrations, provide course
+        access, deliver mentorship services, send training resources, process
+        payments, and respond to support requests. <br /> <br />
+        We may also send important updates, event reminders, educational
+        content, and information about future programs that may benefit your
+        business.
       </>
     ),
   },
   {
-    title: "How We Protect Your Data",
+    title: "Data Security & Protection",
     description:
-      "We implement robust safeguards to keep your information secure.",
+      "We take reasonable measures to protect your personal information.",
     icon: <ShieldCheck className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        All user data is protected by secure access layers, encrypted endpoints,
-        and strict internal access control.
-        <br />
-        <br />
-        We do not share your personal information with third parties unless
-        required by law or for critical service integrations (like payment
-        providers).
+        We implement industry-standard security practices and access controls to
+        protect your personal information from unauthorized access, misuse, or
+        disclosure. <br /> <br />
+        We do not sell your personal information to third parties. Information
+        may only be shared with trusted service providers such as payment
+        processors or technology partners when necessary to deliver our
+        services.
       </>
     ),
   },
   {
-    title: "Data Retention & Deletion",
+    title: "Your Rights & Data Requests",
     description:
-      "You have control over your data — and can delete your account anytime.",
+      "You may request access, correction, or deletion of your information.",
     icon: <Trash2 className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        We retain your information as long as your subscription is active or as
-        needed to comply with legal obligations.
+        You may contact us at any time to request access to your information,
+        update inaccurate details, unsubscribe from marketing communications, or
+        request deletion of your personal data where legally permitted. <br />{" "}
         <br />
-        <br />
-        You can request complete deletion of your account and associated data by
-        contacting us at{" "}
+        To submit a privacy-related request, email us at{" "}
         <a
-          href="mailto:report@foodsnap.in"
+          href="mailto:support@magicscale.in"
           className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
         >
-          report@foodsnap.in
+          [support@magicscale.in](mailto:support@magicscale.in){" "}
         </a>
         .
       </>
@@ -109,43 +103,32 @@ const cardData = [
 ];
 
 const contactData = {
-  title: "Contact Us with Your Questions or Concerns",
+  title: "Questions About Your Privacy?",
   description:
-    "We value your privacy and are here to help with anything related to your data.",
+    "We're committed to transparency and protecting your personal information.",
   content: (
     <div>
+      {" "}
       <p className="mb-4">
-        At FoodSnap.in, your trust is important to us. If you have any questions
-        about our Privacy Policy or how your data is handled, please don’t
-        hesitate to contact us. We're committed to being transparent and
-        respectful of your rights.
+        If you have questions about this Privacy Policy, your personal data, or
+        how we handle information collected through our webinars, training
+        programs, and mentorship services, please contact us.{" "}
       </p>
       <p className="mb-2">
-        General queries:{" "}
+        Email:{" "}
         <a
-          href="mailto:contact@foodsnap.in"
+          href="mailto:support@magicscale.in"
           className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
         >
-          contact@foodsnap.in
-        </a>
-      </p>
-      <p className="mb-2">
-        For support:{" "}
-        <a
-          href="mailto:support@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          support@foodsnap.in
+          support@magicscale.in
         </a>
       </p>
       <p>
-        Data/report requests:{" "}
-        <a
-          href="mailto:report@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          report@foodsnap.in
-        </a>
+        MagicScale Pathshala
+        <br />
+        New Delhi, India
+        <br />
+        Restaurant Growth Training & Mentorship
       </p>
     </div>
   ),
@@ -157,17 +140,18 @@ const page = () => {
       title="Privacy Policy"
       heading={
         <div>
-          Your Data. <br className="hidden sm:block" />
-          Your Rights. Our Responsibility.
+          Your Privacy. <br className="hidden sm:block" />
+          Our Commitment.{" "}
         </div>
       }
-      description="Learn how we collect, use, and safeguard your personal information with full transparency and control."
-      ctaDescription="We are committed to protecting your personal data. This policy explains what information we collect and how we use it. By using our services, you agree to this policy."
-      ctaLink="/report-issue"
+      description="Learn how MagicScale Pathshala collects, uses, stores, and protects your personal information."
+      ctaDescription="We respect your privacy and are committed to protecting your information. This policy explains what data we collect, why we collect it, and how we keep it secure."
+      ctaLink="mailto:support@magicscale.in"
       ctaButton={
         <span className="flex items-center gap-2">
+          {" "}
           <Headset className="w-4 h-4" />
-          Report an Issue
+          Contact Support{" "}
         </span>
       }
       infoData={cardData}

@@ -1,109 +1,111 @@
-
-import React from "react";
-import { Headset, ShieldCheck, Trash2 } from "lucide-react";
 import Template from "@/components/global/template";
+import { Headset, ShieldCheck, Trash2 } from "lucide-react";
 
 export const metadata = {
-  title: "Refund Policy - FoodSnap.in",
+  title: "Refund Policy | MagicScale Pathshala",
   description:
-    "Understand our refund policy for digital food image subscriptions on FoodSnap.in. Instant access to images means refunds are limited to billing issues only.",
-  keywords:
-    "FoodSnap, Refund Policy, Digital Downloads, Food Images, Billing Issues",
+    "Read the refund policy for MagicScale Pathshala webinars, workshops, mentorship programs, and educational services.",
+  keywords: [
+    "MagicScale Refund Policy",
+    "No Refund Policy",
+    "Webinar Refund Policy",
+    "Restaurant Business Training",
+    "Mentorship Refund",
+  ],
   openGraph: {
-    title: "Refund Policy - FoodSnap.in",
+    title: "Refund Policy | MagicScale Pathshala",
     description:
-      "FoodSnap.in provides instant digital food images. Refunds are applicable only for billing errors.",
-    url: "https://foodsnap.in/refund-policy",
-    siteName: "FoodSnap.in",
+      "MagicScale Pathshala follows a strict no-refund policy for webinars, workshops, and mentorship programs except in cases where the error is on our side.",
+    url: "https://magicscale.in/refund-policy",
+    siteName: "MagicScale Pathshala",
     type: "website",
   },
 };
 
 const cardData = [
   {
-    title: "No Refund Policy for Digital Image Downloads",
-    description:
-      "Due to the nature of downloadable digital food content, refunds are generally not provided.",
+    title: "Strict No Refund Policy",
+    description: "All webinar, workshop, and mentorship purchases are final.",
     icon: <ShieldCheck className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        FoodSnap.in provides instant access to a curated library of
-        Swiggy/Zomato-approved food images upon subscription.
-        <br />
-        <br />
-        As our service is digital, subscription-based, and provides immediate
-        download access, FoodSnap.in follows a strict{" "}
-        <strong>no-refund policy</strong> unless required by applicable law or
-        due to a verified billing error.
+        MagicScale Pathshala provides educational content, training programs,
+        webinars, mentorship sessions, digital resources, and business guidance.{" "}
+        <br /> <br />
+        Due to the nature of digital educational services and immediate access
+        to proprietary training materials, all purchases are final and
+        non-refundable. <br /> <br />
+        By completing your purchase, you acknowledge and agree to this no-refund
+        policy.
       </>
     ),
   },
   {
-    title: "User Agreement at Time of Subscription",
+    title: "Results Are Not Guaranteed",
     description:
-      "Users agree to our refund terms before activating a subscription.",
+      "Business outcomes depend on execution and many external factors.",
     icon: <Trash2 className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        By subscribing to FoodSnap.in, users acknowledge that their plan
-        includes unlimited downloads and becomes non-refundable once activated.
+        Refunds will not be provided because:{" "}
+        <ul className="list-disc ml-5 mt-2">
+          {" "}
+          <li>You did not achieve the desired business results.</li>{" "}
+          <li>You were unable to implement the strategies taught.</li>{" "}
+          <li>Your restaurant did not reach expected sales targets.</li>{" "}
+          <li>You changed your mind after purchasing.</li>{" "}
+          <li>You were unable to attend a live webinar or session.</li>{" "}
+          <li>You no longer wish to continue the program.</li>{" "}
+        </ul>{" "}
         <br />
-        <br />
-        We strongly encourage users to explore our platform preview or contact
-        support before subscribing if unsure.
+        Every business is different, and outcomes depend on numerous factors
+        outside our control.
       </>
     ),
   },
   {
-    title: "Refunds in Rare Billing Error Cases",
-    description: "Refunds may be considered only in billing-related issues.",
+    title: "Refunds Only for Our Errors",
+    description: "Exceptions apply only when the issue is caused by us.",
     icon: <ShieldCheck className="w-6 h-6 text-green-500" />,
     content: (
       <>
-        FoodSnap.in may consider refunding only in specific billing-related
-        scenarios such as:
+        Refund requests may only be considered if:{" "}
         <ul className="list-disc ml-5 mt-2">
-          <li>Duplicate payment made by mistake</li>
-          <li>Technical transaction failure</li>
-          <li>Accidental overcharge due to system issue</li>
-        </ul>
+          {" "}
+          <li>You were charged multiple times for the same purchase.</li>{" "}
+          <li>A verified billing or payment processing error occurred.</li>{" "}
+          <li>
+            We failed to provide the purchased service due to our mistake.
+          </li>{" "}
+        </ul>{" "}
         <br />
-        To request a billing-related review, please contact our support team
-        with full transaction details.
+        Any approved refund remains solely at the discretion of MagicScale
+        Pathshala after reviewing the circumstances.
       </>
     ),
   },
 ];
 
 const contactData = {
-  title: "Need Help with a Billing or Refund Concern?",
+  title: "Questions About Billing?",
   description:
-    "Our support team can review valid refund queries for FoodSnap.in.",
+    "Contact us if you believe a payment issue occurred due to our mistake.",
   content: (
     <div>
+      {" "}
       <p className="mb-4">
-        Although we operate under a no-refund policy for digital downloads, we
-        understand that certain rare billing situations may arise. If you
-        believe you're eligible for a refund due to a payment issue, reach out
-        to us at{" "}
-        <a
-          href="mailto:support@foodsnap.in"
-          className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
-        >
-          support@foodsnap.in
-        </a>
-        .
+        If you believe you were charged incorrectly or experienced a billing
+        issue caused by our systems, please contact us with your payment details
+        and transaction reference.{" "}
       </p>
       <p>
-        All refund requests are reviewed carefully. For issues related to image
-        drops or file access, you may also contact{" "}
+        Support Email:{" "}
         <a
-          href="mailto:report@foodsnap.in"
+          href="mailto:support@magicscale.in"
           className="text-blue-600 dark:text-blue-400 hover:underline underline-offset-2"
         >
-          report@foodsnap.in
+          support@magicscale.in
         </a>
-        .
       </p>
     </div>
   ),
@@ -115,17 +117,17 @@ const page = () => {
       title="Refund Policy"
       heading={
         <div>
-          Refund Policy <br className="hidden sm:block" />
-          for FoodSnap Subscriptions
+          Refund Policy <br className="hidden sm:block" />& Payment Terms{" "}
         </div>
       }
-      description="Understand our refund policy for digital food image subscriptions on FoodSnap.in. Due to the instant delivery model, refunds are limited to billing issues only."
-      ctaDescription="FoodSnap.in follows a no-refund policy for digital food image downloads. Exceptions apply only in the case of duplicate payments or technical billing errors."
-      ctaLink="/report-issue"
+      description="Please review our refund policy before purchasing any webinar, workshop, mentorship, or training program."
+      ctaDescription="All purchases made through MagicScale Pathshala are final. Refunds are only considered in rare cases where the issue was caused by our billing systems or service delivery error."
+      ctaLink="mailto:support@magicscale.in"
       ctaButton={
         <span className="flex items-center gap-2">
+          {" "}
           <Headset className="w-4 h-4" />
-          Report an Issue
+          Contact Support{" "}
         </span>
       }
       infoData={cardData}
