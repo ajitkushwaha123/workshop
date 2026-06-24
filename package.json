@@ -30,6 +30,7 @@
     "next-themes": "^0.4.6",
     "postcss": "^8.5.6",
     "posthog-js": "^1.376.0",
+    "radix-ui": "^1.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.6.0",

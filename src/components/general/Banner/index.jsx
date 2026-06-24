@@ -8,12 +8,12 @@ export const Banner = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-20 px-4"
+            className="my-6 px-4"
         >
-            <div className="max-w-6xl mx-auto rounded-2xl border border-neutral-200 dark:border-neutral-700 p-6 md:p-10 backdrop-blur-lg shadow-lg dark:shadow-black/20 bg-white/60 dark:bg-[#10101a]/70">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="mx-auto rounded-lg border border-neutral-200 dark:border-neutral-700 p-6 md:p-10 backdrop-blur-lg shadow-lg dark:shadow-black/20 bg-white/60 dark:bg-[#10101a]/70">
+                <div className="flex w-full flex-col md:flex-row items-center justify-between gap-8">
                     <div className="md:w-2/3">
-                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-medium mb-4">
+                        <div className="inline-flex items-center px-3 py-1 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-medium mb-4">
                             {BANNER_INFO.TITLE}
                         </div>
 
