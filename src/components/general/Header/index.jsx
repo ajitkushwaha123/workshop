@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -17,7 +16,7 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl px-6 rounded-xl backdrop-blur-md bg-white/70 dark:bg-darkBackground/40 border border-gray-200 dark:border-gray-500 shadow-lg transition-all duration-300">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl px-3 rounded-xl backdrop-blur-md bg-white/70 dark:bg-darkBackground/40 border border-gray-200 dark:border-gray-500 shadow-lg transition-all duration-300">
       <div className="flex items-center justify-between py-3">
         <Link href="/" className="group flex items-center gap-2.5">
           <Logo />
@@ -26,13 +25,10 @@ export default function Header() {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="text-2xl cursor-pointer font-extrabold tracking-tighter hidden sm:flex items-center"
+            className="text-2xl cursor-pointer font-extrabold tracking-tighter flex items-center"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 transition-all duration-300">
               Magicscale
-            </span>
-            <span className="ml-0.5 text-transparent bg-clip-text bg-gradient-to-br from-green-500 to-emerald-400 font-black">
-              .
             </span>
           </motion.div>
         </Link>

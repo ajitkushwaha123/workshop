@@ -16,17 +16,17 @@ export default function Home() {
     <div className="pb-16 w-full text-neutral-900 dark:text-white transition-colors duration-300">
       <Hero />
       <PainSection />
-      <MasonryGallery />
       {/* <TransformationSection /> */}
       <AgendaTimelineSection />
-      <StickyMobileCTA />
-      <Testimonials />
       <BonusSection
         title="Free Zomato & Swiggy Onboarding"
         value="₹5,000+ Value"
         limit={10}
         description="We'll personally help you complete restaurant onboarding on Zomato & Swiggy so you can start receiving orders faster."
       />
+      <StickyMobileCTA />
+      <MasonryGallery />
+      <Testimonials />
       <Banner />
       <Faqs />
     </div>
