@@ -10,13 +10,12 @@ const registrationSchema = new mongoose.Schema(
     phone: {
       type: String,
       required: true,
-      unique: true,
     },
 
     email: String,
     paymentStatus: {
       type: String,
-      enum: ["PENDING", "SUCCESS", "FAILED"],
+      enum: ["PENDING", "CREATED", "ABANDONED", "DROPPED", "FAILED", "SUCCESS"],
       default: "PENDING",
     },
 
@@ -32,6 +31,14 @@ const registrationSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+  },
+);
+
+registrationSchema.index(
+  { phone: 1 },
+  {
+    unique: true,
+    partialFilterExpression: { paymentStatus: "SUCCESS" },
   },
 );
 

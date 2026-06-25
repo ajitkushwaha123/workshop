@@ -45,6 +45,7 @@ export async function POST(req) {
 
     const existingRegistration = await Registration.findOne({
       phone,
+      paymentStatus: "SUCCESS",
     });
 
     if (existingRegistration) {

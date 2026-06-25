@@ -223,18 +223,5 @@ function TicketPageContent() {
 }
 
 export default function Page() {
-  return (
-    <Suspense
-      fallback={
-        <div className="bg-slate-50 flex items-center justify-center">
-          <div className="animate-pulse flex flex-col items-center gap-3">
-            <div className="h-12 w-12 rounded-full bg-slate-200" />
-            <div className="h-4 w-32 bg-slate-200 rounded" />
-          </div>
-        </div>
-      }
-    >
-      <TicketPageContent />
-    </Suspense>
-  );
+  return <TicketPageContent />;
 }

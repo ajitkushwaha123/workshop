@@ -5,6 +5,8 @@ import { Poppins } from "next/font/google";
 import AppShell from "@/components/global/AppShell";
 // import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThirdPartyScripts from "@/components/ThirdPartyScripts";
+import { Suspense } from "react";
+import Loader from "@/components/general/states/loader";
 // import { PostHogProvider } from "@/components/PostHogProvider";
 
 const poppins = Poppins({
@@ -50,9 +52,12 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} font-poppins antialiased`}>
         {/* <PostHogProvider> */}
-        <Providers>
-          <AppShell>{children}</AppShell>
-        </Providers>
+
+        <Suspense fallback={<Loader />}>
+          <Providers>
+            <AppShell>{children}</AppShell>
+          </Providers>
+        </Suspense>
         {/* </PostHogProvider> */}
 
         {/* <Analytics />

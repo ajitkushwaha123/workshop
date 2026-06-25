@@ -11,7 +11,7 @@ export default function PayButton() {
       <ReserveSeatDialog open={open} onOpenChange={setOpen} />
       <button
         onClick={() => setOpen(true)}
-        className="group flex-1 rounded-md bg-green-600 px-5 py-3 font-semibold text-white shadow-lg shadow-green-600/20 transition-all duration-300 hover:bg-green-700 active:scale-[0.98]"
+        className="group flex-1 w-full rounded-md bg-green-600 px-5 py-3 font-semibold text-white shadow-lg shadow-green-600/20 transition-all duration-300 hover:bg-green-700 active:scale-[0.98]"
       >
         <div className="flex items-center justify-center gap-2">
           <span>Reserve Seat</span>

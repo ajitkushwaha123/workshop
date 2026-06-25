@@ -3,25 +3,100 @@ import dbConnect from "@/lib/db-connect";
 import { NextResponse } from "next/server";
 import { Registration } from "@/models/Registration";
 
-const FIVE_MINUTES = 5 * 60 * 1000;
+const STATUS_PRIORITY = {
+  CREATED: 0,
+  ABANDONED: 1,
+  DROPPED: 2,
+  FAILED: 3,
+  SUCCESS: 100,
+};
+
+async function updateRegistrationStatus({ orderId, status, paymentId }) {
+  if (!orderId) return;
+
+  const registration = await Registration.findOne({ orderId });
+  if (!registration) {
+    console.log(`[WEBHOOK] Registration not found: ${orderId}`);
+    return;
+  }
+
+  const currentPriority = STATUS_PRIORITY[registration.paymentStatus] ?? 0;
+  const nextPriority = STATUS_PRIORITY[status] ?? 0;
+
+  if (currentPriority >= nextPriority) {
+    console.log(
+      `[WEBHOOK] Ignored status transition ${registration.paymentStatus} -> ${status} for ${orderId}`,
+    );
+    return;
+  }
+
+  registration.paymentStatus = status;
+  if (paymentId) {
+    registration.paymentId = paymentId;
+  }
+
+  if (status === "SUCCESS") {
+    registration.paymentCompletedAt = new Date();
+  }
+
+  await registration.save();
+  console.log(
+    `[WEBHOOK] ${orderId} updated ${registration.paymentStatus} -> ${status}`,
+  );
+}
+
+const handlers = {
+  PAYMENT_SUCCESS_WEBHOOK: async (data) => {
+    await updateRegistrationStatus({
+      orderId: data?.order?.order_id,
+      status: "SUCCESS",
+      paymentId: data?.payment?.cf_payment_id,
+    });
+  },
+
+  PAYMENT_FAILED_WEBHOOK: async (data) => {
+    await updateRegistrationStatus({
+      orderId: data?.order?.order_id,
+      status: "FAILED",
+    });
+  },
+
+  USER_DROPPED_WEBHOOK: async (data) => {
+    await updateRegistrationStatus({
+      orderId: data?.order?.order_id,
+      status: "DROPPED",
+    });
+  },
+
+  ABANDONED_CHECKOUT_WEBHOOK: async (data) => {
+    await updateRegistrationStatus({
+      orderId: data?.order?.order_id,
+      status: "ABANDONED",
+    });
+  },
+
+  PAYMENT_VERIFICATION_WEBHOOK: async (data) => {
+    console.log("[WEBHOOK] Verification webhook received");
+  },
+};
 
 function verifySignature({ rawBody, timestamp, signature, secret }) {
-  const generatedSignature = crypto
-    .createHmac("sha256", process.env.CASHFREE_WEBHOOK_SECRET)
-    .update(timestamp + rawBody)
+  const expected = crypto
+    .createHmac("sha256", secret)
+    .update(`${timestamp}${rawBody}`)
     .digest("base64");
 
-  console.log({
-    received: signature,
-    generated: generatedSignature,
-  });
-
   try {
-    return crypto.timingSafeEqual(
-      Buffer.from(generatedSignature),
-      Buffer.from(signature),
-    );
-  } catch {
+    const expectedBuffer = Buffer.from(expected);
+    const signatureBuffer = Buffer.from(signature);
+
+    if (expectedBuffer.length !== signatureBuffer.length) {
+      return false;
+    }
+
+    return crypto.timingSafeEqual(expectedBuffer, signatureBuffer);
+  } catch (err) {
+    console.error("[WEBHOOK] Signature comparison error:", err);
     return false;
   }
 }
@@ -31,197 +106,56 @@ export async function POST(req) {
     await dbConnect();
 
     const rawBody = await req.text();
-
     const signature = req.headers.get("x-webhook-signature");
     const timestamp = req.headers.get("x-webhook-timestamp");
-    const idempotencyKey = req.headers.get("x-idempotency-key");
-    const webhookVersion = req.headers.get("x-webhook-version");
-
-    console.log("Webhook Headers:", {
-      signature,
-      timestamp,
-      idempotencyKey,
-      webhookVersion,
-    });
 
     if (!signature || !timestamp) {
       return NextResponse.json(
-        {
-          success: false,
-          message: "Missing webhook headers",
-        },
-        {
-          status: 401,
-        },
+        { success: false, message: "Missing webhook headers" },
+        { status: 401 },
       );
     }
 
-    // Replay protection
-    const webhookTime = Number(timestamp);
-
-    if (!Number.isNaN(webhookTime)) {
-      const age = Math.abs(Date.now() - webhookTime);
-
-      if (age > FIVE_MINUTES) {
-        return NextResponse.json(
-          {
-            success: false,
-            message: "Webhook timestamp expired",
-          },
-          {
-            status: 401,
-          },
-        );
-      }
+    // const secret = process.env.CASHFREE_WEBHOOK_SECRET;
+    const secret = process.env.CASHFREE_SECRET_KEY;
+    if (!secret) {
+      console.error(
+        "Cashfree webhook secret missing in environment variables.",
+      );
+      return NextResponse.json(
+        { success: false, message: "Webhook configuration error" },
+        { status: 500 },
+      );
     }
 
-    const isValid = verifySignature({
-      rawBody,
-      timestamp,
-      signature,
-      secret:
-        process.env.CASHFREE_WEBHOOK_SECRET || process.env.CASHFREE_SECRET_KEY,
-    });
-
+    const isValid = verifySignature({ rawBody, timestamp, signature, secret });
     if (!isValid) {
-      console.error("Invalid webhook signature");
-
       return NextResponse.json(
-        {
-          success: false,
-          message: "Invalid signature",
-        },
-        {
-          status: 401,
-        },
+        { success: false, message: "Invalid signature" },
+        { status: 401 },
       );
     }
 
     const payload = JSON.parse(rawBody);
+    const { type, data } = payload
 
-    console.log("Verified Cashfree Webhook:", JSON.stringify(payload, null, 2));
-
-    if (payload.type === "WEBHOOK") {
-      console.log("Cashfree test webhook received");
-
-      return NextResponse.json({
-        success: true,
-        message: "Test webhook received",
-      });
+    if (type === "WEBHOOK") {
+      console.log("[WEBHOOK] Test webhook received successfully");
+      return NextResponse.json({ success: true, message: "Test acknowledged" });
     }
 
-    const { type, data } = payload;
-
-    switch (type) {
-      case "PAYMENT_SUCCESS_WEBHOOK": {
-        const orderId = data?.order?.order_id;
-        const cfPaymentId = data?.payment?.cf_payment_id;
-
-        if (!orderId) break;
-
-        const registration = await Registration.findOne({
-          orderId,
-        });
-
-        if (!registration) {
-          console.log(`Registration not found for order ${orderId}`);
-
-          break;
-        }
-
-        if (registration.paymentStatus === "SUCCESS") {
-          console.log(`Duplicate success webhook for ${orderId}`);
-
-          break;
-        }
-
-        registration.paymentStatus = "SUCCESS";
-        registration.paymentId = cfPaymentId;
-        registration.paymentCompletedAt = new Date();
-
-        await registration.save();
-
-        console.log(`Payment SUCCESS processed for ${orderId}`);
-
-        break;
-      }
-
-      case "PAYMENT_FAILED_WEBHOOK": {
-        const orderId = data?.order?.order_id;
-
-        if (!orderId) break;
-
-        await Registration.findOneAndUpdate(
-          { orderId },
-          {
-            paymentStatus: "FAILED",
-          },
-        );
-
-        console.log(`Payment FAILED processed for ${orderId}`);
-
-        break;
-      }
-
-      case "USER_DROPPED_WEBHOOK": {
-        const orderId = data?.order?.order_id;
-
-        if (!orderId) break;
-
-        await Registration.findOneAndUpdate(
-          { orderId },
-          {
-            paymentStatus: "DROPPED",
-          },
-        );
-
-        console.log(`Payment DROPPED processed for ${orderId}`);
-
-        break;
-      }
-
-      case "ABANDONED_CHECKOUT_WEBHOOK": {
-        const orderId = data?.order?.order_id;
-
-        if (!orderId) break;
-
-        await Registration.findOneAndUpdate(
-          { orderId },
-          {
-            paymentStatus: "ABANDONED",
-          },
-        );
-
-        console.log(`Checkout ABANDONED processed for ${orderId}`);
-
-        break;
-      }
-
-      case "PAYMENT_VERIFICATION_WEBHOOK": {
-        console.log("PAYMENT_VERIFICATION_WEBHOOK received");
-
-        break;
-      }
-
-      default: {
-        console.log(`Unhandled webhook type: ${type}`);
-      }
+    if (handlers[type]) {
+      await handlers[type](data);
+    } else {
+      console.log(`[WEBHOOK] Unhandled webhook type: ${type}`);
     }
 
-    return NextResponse.json({
-      success: true,
-    });
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Cashfree Webhook Error:", error);
-
     return NextResponse.json(
-      {
-        success: false,
-        message: error.message,
-      },
-      {
-        status: 500,
-      },
+      { success: false, message: error.message },
+      { status: 500 },
     );
   }
 }
