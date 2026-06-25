@@ -18,7 +18,7 @@ const INK = "#1C2420";
 const PAPER = "#FBF8EE";
 const STUB = "#F3EEDD";
 const LINE = "rgba(28,36,32,0.16)";
-const ACCENT = "#22c55e";
+const ACCENT = "#1F7A4D";
 
 const defaultModules = [
   {
@@ -81,11 +81,11 @@ export default function AgendaTimelineSection({ modules = defaultModules }) {
       }
     >
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mx-auto"
+        className="mx-auto max-w-6xl"
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {modules.map((mod, i) => {

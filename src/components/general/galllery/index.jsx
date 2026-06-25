@@ -45,7 +45,7 @@ const IMAGES = [
     id: 9,
     src: "/assets/gallery/team9.png",
     alt: "Operation Team",
-  }
+  },
 ];
 
 function MasonryItem({ img, index }) {
@@ -83,6 +83,7 @@ function MasonryItem({ img, index }) {
 export default function MasonryGallery() {
   return (
     <SectionWrapper
+      id="team"
       title={
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -95,7 +96,9 @@ export default function MasonryGallery() {
               <span className="text-3xl md:text-6xl">
                 Meet <br />
                 <Highlighter action="highlight" color="#22c55e">
-                  <span className="text-white relative z-10 px-2 py-1">Our Team</span>
+                  <span className="text-white relative z-10 px-2 py-1">
+                    Our Team
+                  </span>
                 </Highlighter>
               </span>
             }

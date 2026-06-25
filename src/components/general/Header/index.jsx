@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Logo } from "@/components/general/logo";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks, navMobileLinks } from "./helper/constants";
+import PayButton from "../Payment/PayButton";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,32 +35,30 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks?.map((link, i) => (
-            <motion.a
-              key={i}
-              href={`${link?.href}`}
-              className="relative text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors group"
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i }}
-            >
-              {link?.title}
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
-            </motion.a>
-          ))}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks?.map((link, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * i }}
+              >
+                <Link
+                  href={link.href}
+                  className="relative text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors group"
+                >
+                  {link.title}
+                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
         </nav>
 
         <div className="flex items-center gap-3 md:gap-4">
-          <motion.a
-            href={`${process.env.NEXT_PUBLIC_USER_APP_URL}/sign-up?redirect=%2Fpricing`}
-            target="_blank"
-            className="hidden md:inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-md text-sm font-semibold shadow-md hover:shadow-xl transition-all"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Get Started
-          </motion.a>
+          <div className="hidden md:block">
+            <PayButton />
+          </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -80,23 +79,16 @@ export default function Header() {
             className="md:hidden px-4 pb-4 pt-1 space-y-2 border-t border-gray-200 dark:border-gray-800"
           >
             {navMobileLinks?.map((link, i) => (
-              <a
+              <Link
                 key={i}
-                href={`${link?.href}`}
+                href={link.href}
                 className="block text-gray-800 dark:text-gray-100 py-2 border-b border-gray-100 dark:border-gray-700 text-sm font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {link.title}
-              </a>
+              </Link>
             ))}
-            <a
-              href={process.env.NEXT_PUBLIC_USER_APP_URL}
-              target="_blank"
-              onClick={() => setIsOpen(false)}
-              className="block w-full text-center mt-2 text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-sm font-semibold transition"
-            >
-              Get Started
-            </a>
+            <PayButton />
           </motion.div>
         )}
       </AnimatePresence>

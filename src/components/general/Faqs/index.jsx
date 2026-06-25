@@ -16,6 +16,7 @@ export default function Faqs() {
 
   return (
     <SectionWrapper
+      id="faqs"
       title={
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -28,7 +29,9 @@ export default function Faqs() {
               <span className="text-3xl md:text-6xl">
                 Frequently Asked <br />
                 <Highlighter action="highlight" color="#22c55e">
-                  <span className="text-white relative z-10 px-2 py-1">Questions</span>
+                  <span className="text-white relative z-10 px-2 py-1">
+                    Questions
+                  </span>
                 </Highlighter>
               </span>
             }
@@ -50,10 +53,11 @@ export default function Faqs() {
             >
               <button
                 onClick={() => toggle(i)}
-                className={`w-full flex items-center justify-between px-5 py-4 text-left font-medium text-md md:text-lg transition-all duration-300 ${isOpen
-                  ? "bg-green-100 dark:bg-[#1a183b]/60"
-                  : "hover:bg-green-50 dark:hover:bg-[#16142f]/40"
-                  }`}
+                className={`w-full flex items-center justify-between px-5 py-4 text-left font-medium text-md md:text-lg transition-all duration-300 ${
+                  isOpen
+                    ? "bg-green-100 dark:bg-[#1a183b]/60"
+                    : "hover:bg-green-50 dark:hover:bg-[#16142f]/40"
+                }`}
               >
                 <div className="flex items-center gap-3">
                   <Icon className="w-5 h-5 text-green-500 dark:text-green-400 shrink-0" />

@@ -30,7 +30,8 @@ export const metadata = {
     "food entrepreneur",
   ],
   openGraph: {
-    title: "MagicScale Pathshala | Learn How to Launch a Profitable Food Business on Swiggy & Zomato for ₹9",
+    title:
+      "MagicScale Pathshala | Learn How to Launch a Profitable Food Business on Swiggy & Zomato for ₹9",
     description:
       "Learn the exact framework to start and scale a food business online. Live webinar. Register for ₹9.",
     type: "website",
@@ -38,16 +39,12 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Launch a Profitable Food Business on Swiggy & Zomato",
-    description:
-      "Live webinar by MagicScale Pathshala. Register for just ₹9.",
+    title: "Launch a Profitable Food Business on Swiggy & Zomato",
+    description: "Live webinar by MagicScale Pathshala. Register for just ₹9.",
   },
 };
 
-export default function RootLayout({
-  children,
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} font-poppins antialiased`}>
