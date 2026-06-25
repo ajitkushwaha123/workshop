@@ -7,9 +7,14 @@ const FIVE_MINUTES = 5 * 60 * 1000;
 
 function verifySignature({ rawBody, timestamp, signature, secret }) {
   const generatedSignature = crypto
-    .createHmac("sha256", secret)
-    .update(`${timestamp}${rawBody}`)
+    .createHmac("sha256", process.env.CASHFREE_WEBHOOK_SECRET)
+    .update(timestamp + rawBody)
     .digest("base64");
+
+  console.log({
+    received: signature,
+    generated: generatedSignature,
+  });
 
   try {
     return crypto.timingSafeEqual(
