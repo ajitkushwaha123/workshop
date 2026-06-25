@@ -1,26 +1,21 @@
 "use client";
-import Footer from "@/components/general/Footer";
+import { usePlan } from "@/hooks/usePlan";
 import Header from "@/components/general/Header";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Footer from "@/components/general/Footer";
+import Loader from "@/components/general/states/loader";
+import ErrorState from "@/components/general/states/Error";
 
 export default function AppShell({ children }) {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 1000 * 60,
-        refetchOnWindowFocus: false,
-        retry: 1,
-      },
-    },
-  });
+  const { data: plan, isLoading, isError } = usePlan("zomato-swiggy-workshop");
+
+  if (isLoading) return <Loader />;
+  if (isError || !plan) return <ErrorState />;
 
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <Header />
-        <div className="pt-12 min-h-screen">{children}</div>
-        <Footer />
-      </QueryClientProvider>
+      <Header />
+      <main className="pt-12 min-h-screen">{children}</main>
+      <Footer />
     </>
   );
 }
